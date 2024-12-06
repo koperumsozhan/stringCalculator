@@ -7,9 +7,17 @@ class StringCalculator {
       return "The string is empty!";
     }
 
-    str = str.replace(/\n/g, ","); //replacing the new line with comma
+    let delimiter = /,|\n/; // Default delimiters: comma or newline
+    let numberString = str;
 
-    const num = str.split(",").map(Number); //collecting numbres array
+    // Check for custom delimiter
+    if (str.startsWith("//")) {
+      const delimiterLineEnd = str.indexOf("\n");
+      delimiter = new RegExp(str.substring(2, delimiterLineEnd));
+      numberString = str.substring(delimiterLineEnd + 1);
+    }
+
+    const num = numberString.split(delimiter).map(Number); //collecting numbres array
     return num.reduce((a, b) => a + b, 0); //adding numbers
   }
 }

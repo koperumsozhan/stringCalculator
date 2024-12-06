@@ -94,3 +94,17 @@ test("validation: any sized delimiter string; input: //@@@@@@@@@@@@@@@@@@@\n45@@
     )
   ).toBe(56); //comparing results
 });
+
+test("validation: multiple delimiter string; input: //[*][%]\n1*2%3;output: 6", () => {
+  //multiple delimiter string
+  const stringCalculator = new StringCalculator(); //creating object
+
+  expect(stringCalculator.add("//[*][%]\n1*2%3")).toBe(6); //comparing results
+});
+
+test("validation: multiple delimiter string with any size; input: //[***][%%]\n1***2%%3;output: 6", () => {
+  //multiple delimiter string with any size
+  const stringCalculator = new StringCalculator(); //creating object
+
+  expect(stringCalculator.add("//[***][%%]\n1***2%%3")).toBe(6); //comparing results
+});

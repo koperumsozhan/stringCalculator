@@ -19,3 +19,5 @@ console.log(
     "//@@@@@@@@@@@@@@@@@@@\n45@@@@@@@@@@@@@@@@@@@5@@@@@@@@@@@@@@@@@@@6"
   )
 ); //calling with anysize At(@) delimeter
+console.log(stringCalculator.add("//[*][%]\n1*2%3")); //calling multiple delimeter
+console.log(stringCalculator.add("//[***][%%]\n1***2%%3")); //calling multiple delimeter string with any size

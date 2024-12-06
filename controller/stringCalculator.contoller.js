@@ -7,17 +7,33 @@ class StringCalculator {
       return "The string is empty!";
     }
 
-    let delimiter = /,|\n/; // Default delimiters: comma or newline
+    let delimiters = [",", "\n"]; //default delimiters: comma or newline
     let numberString = str;
 
-    // Check for custom delimiter
     if (str.startsWith("//")) {
+      //check for custom delimiter
       const delimiterLineEnd = str.indexOf("\n");
-      delimiter = new RegExp(str.substring(2, delimiterLineEnd));
+      const delimiterSection = str.substring(2, delimiterLineEnd);
+
+      // handle multiple delimiters
+      if (delimiterSection.startsWith("[")) {
+        const matches = delimiterSection.match(/\[([^\]]+)\]/g);
+        if (matches) {
+          delimiters = matches.map((match) => match.slice(1, -1)); //extract delimiters without brackets
+        }
+      } else {
+        delimiters = [delimiterSection]; //single custom delimiter
+      }
+
       numberString = str.substring(delimiterLineEnd + 1);
     }
 
-    const num = numberString.split(delimiter).map(Number); //collecting numbres array
+    //create a regex to split by all delimiters
+    const delimiterRegex = new RegExp(
+      delimiters.map((d) => d.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")
+    );
+
+    const num = numberString.split(delimiterRegex).map(Number); //collecting numbres array
     return num.reduce((a, b) => {
       if (b < 0) return "negatives not allowed";
       if (b > 1000) b = 0;

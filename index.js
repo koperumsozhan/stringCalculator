@@ -1,6 +1,6 @@
 const StringCalculator = require("./controller/stringCalculator.contoller"); //importing
 
-const stringCalculator = new StringCalculator(); //creating objcet 
+const stringCalculator = new StringCalculator(); //creating objcet
 
 console.log(stringCalculator.add("")); //calling using empty string
 console.log(stringCalculator.add("1")); //calling using single number

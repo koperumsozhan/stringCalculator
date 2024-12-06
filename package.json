@@ -1,0 +1,22 @@
+{
+  "name": "stringcalculator",
+  "version": "1.0.0",
+  "description": "This is a calculator which is going to sum given string numbers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koperumsozhan/stringCalculator.git"
+  },
+  "keywords": [
+    "Calculator"
+  ],
+  "author": "KoperumsozhanVR",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/koperumsozhan/stringCalculator/issues"
+  },
+  "homepage": "https://github.com/koperumsozhan/stringCalculator#readme"
+}

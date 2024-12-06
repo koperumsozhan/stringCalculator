@@ -18,7 +18,11 @@ class StringCalculator {
     }
 
     const num = numberString.split(delimiter).map(Number); //collecting numbres array
-    return num.reduce((a, b) => a + b, 0); //adding numbers
+    return num.reduce((a, b) => {
+      if (b < 0) return "negatives not allowed";
+      if (b > 1000) b = 0;
+      return a + b;
+    }, 0); //adding numbers
   }
 }
 
